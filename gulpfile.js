@@ -29,8 +29,8 @@ gulp.task('bundle', function () {
 	.pipe(gulp.dest('./.tmp'));
 
 });
-
-gulp.task('serve', /*depends on:*/['live-server'], function () {
+					//bundling always happens when serve taks is fired
+gulp.task('serve', /*depends on:*/['bundle', 'live-server'], function () {
 		browserSync.init(null, {
 			proxy:"http://localhost:7777",
 			port: 9001
