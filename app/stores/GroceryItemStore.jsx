@@ -2,7 +2,17 @@ var dispatcher = require('./../dispatcher.js');
 
 function GroceryItemStore() {
 	//You can look at stores like big fancy arrays.
-	var items = [];
+	var items = [{
+		name: "Ice Cream"
+	},{
+		name: "Waffles"
+	},{
+		name: "Candy",
+		purchased: true
+	},{
+		name: "Snarks"
+	}];
+
 	var listeners = [];
 
 	function getItems () {
@@ -19,13 +29,13 @@ function GroceryItemStore() {
 	}
 
 	function triggerListeners () {
-		changeListeners.forEach(function (listener) {
-			listener(groceryItems);
+		listeners.forEach(function (listener) {
+			listener(items);
 		})
 	}
 
 	dispatcher.register(function (event) {
-		var split : event.type.split(':');
+		var split = event.type.split(':');
 		if (split[0] === 'grocery-item') {
 			switch(split[1]) {
 				case "add":

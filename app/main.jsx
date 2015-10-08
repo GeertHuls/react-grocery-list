@@ -8,15 +8,15 @@ var React = require('react/addons');
 //Browserify is letting us use this way of requiring modules than just a normal front end app would allow.
 var GroceryItemList = require('./components/GroceryItemList.jsx');
 
-var initial = [{
-	name: "Ice Cream"
-},{
-	name: "Waffles"
-},{
-	name: "Candy",
-	purchased: true
-},{
-	name: "Snarks"
-}];
+var groceryItemStore = require('./stores/GroceryItemStore.jsx');
+var initial = groceryItemStore.getItems();
+function render () {
+	React.render(<GroceryItemList items={initial} />, app); //app refers to the div with id 'app' located in de index.ejs file.
+}
 
-React.render(<GroceryItemList items={initial} />, app); //app refers to the div with id 'app' located in de index.ejs file.
+groceryItemStore.onChange(function (items) {
+	initial = items;
+	render();
+})
+
+render();
