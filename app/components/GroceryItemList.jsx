@@ -2,6 +2,7 @@
 //Require is much better than include scripts in html. Here we're absolutely
 //clear what our variables are in this scope.
 var React = require('react/addons');
+var GroceryItem = require('./GroceryItem.jsx');
 
 //module.exports will allow any other file to quickly access
 //this grocery item list class and create new instances of it.
@@ -15,7 +16,7 @@ module.exports = React.createClass({
 				<div>
 					{this.props.items.map(function (item, index) {
 						return(
-							<div>{item.name}</div>
+							<GroceryItem item={item} key={"item"+index}/>
 						)
 					})
 					}
