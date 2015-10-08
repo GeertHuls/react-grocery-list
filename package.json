@@ -13,6 +13,7 @@
     "browserify": "^11.2.0",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
+    "guid": "0.0.12",
     "gulp": "^3.9.0",
     "gulp-live-server": "0.0.28",
     "react": "^0.13.3",
