@@ -12,6 +12,14 @@ module.exports = React.createClass({
 			//this is jsx - an bybrid of html and js:
 			<div>
 				<h1>Grocery listify</h1>
+				<div>
+					{this.props.items.map(function (item, index) {
+						return(
+							<div>{item.name}</div>
+						)
+					})
+					}
+				</div>
 			</div>
 		);
 	}
