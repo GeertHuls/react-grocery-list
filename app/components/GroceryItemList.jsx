@@ -3,6 +3,7 @@
 //clear what our variables are in this scope.
 var React = require('react/addons');
 var GroceryItem = require('./GroceryItem.jsx');
+var GroceryListAddItem = require('./GroceryListAddItem.jsx');
 
 //module.exports will allow any other file to quickly access
 //this grocery item list class and create new instances of it.
@@ -21,6 +22,7 @@ module.exports = React.createClass({
 					})
 					}
 				</div>
+				<GroceryListAddItem />
 			</div>
 		);
 	}
