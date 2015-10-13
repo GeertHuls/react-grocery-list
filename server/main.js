@@ -7,3 +7,6 @@ app.get('/',function(req,res){
 })
 .use(express.static(__dirname + '/../.tmp'))
 .listen(7777);
+
+//Register the items route:
+require('./routes/items.js')(app);
