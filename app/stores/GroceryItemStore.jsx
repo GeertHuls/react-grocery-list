@@ -1,17 +1,15 @@
 var dispatcher = require('./../dispatcher.js');
+var helper = require('./../Helpers/RestHelper.js');
 
 function GroceryItemStore() {
 	//You can look at stores like big fancy arrays.
-	var items = [{
-		name: "Ice Cream"
-	},{
-		name: "Waffles"
-	},{
-		name: "Candy",
-		purchased: true
-	},{
-		name: "Snarks"
-	}];
+	var items = [];
+
+	helper.get("api/items")
+		.then(function (data) {
+			items = data;
+			triggerListeners();
+		});
 
 	var listeners = [];
 
