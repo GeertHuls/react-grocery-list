@@ -10,7 +10,7 @@ gulp.task('live-server', function () {
 	server.start();
 });
 
-gulp.task('bundle', ['copy'], function () {
+gulp.task('bundle', ['copy', 'copy-components'], function () {
 	return browserify({
 		entries: 'app/main.jsx',
 		debug: true,
@@ -33,7 +33,12 @@ gulp.task('bundle', ['copy'], function () {
 gulp.task('copy', function () {
 	gulp.src(['app/*.css'])
 	.pipe(gulp.dest('./.tmp'));
-})
+});
+
+gulp.task('copy-components', function () {
+	gulp.src(['bower_components/**/*'])
+	.pipe(gulp.dest('./.tmp/components'));
+});
 
 					//bundling always happens when serve taks is fired
 gulp.task('serve', /*depends on:*/['bundle', 'live-server'], function () {
