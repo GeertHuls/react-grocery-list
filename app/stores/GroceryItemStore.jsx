@@ -34,6 +34,8 @@ function GroceryItemStore() {
 
 		items.splice(index, 1);
 		triggerListeners();
+
+		helper.del('api/items/' + item._id);
 	}
 
 	function onChange (listener) {
@@ -46,6 +48,8 @@ function GroceryItemStore() {
 		})[0];
 		item.purchased = isBought || false;
 		triggerListeners();
+
+		helper.patch('api/items/' + item._id, item);
 	}
 
 	function triggerListeners () {

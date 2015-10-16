@@ -18,12 +18,14 @@ module.exports = function (app) {
 			});
 		});
 
-	app.route('api/items/:id')
+	app.route('/api/items/:id')
 		.delete(function(req, res) {
-			GroceryItem.find({
-				_id: req.params.id
-			})
-			.remove();
+	        console.log("removing...",req.params.id);
+	        GroceryItem.findOne({
+	            _id:req.params.id
+	        }).remove(function(x){
+	            console.log("removed.",x);
+	        });
 		})
 		.patch(function(req, res) {
 			GroceryItem.findOne({
@@ -32,7 +34,7 @@ module.exports = function (app) {
 				for (var key in req.body) {
 					data[key] = req.body[key];
 				}
-				doc.save();
+				data.save();
 				res.status(200).send();
 			});
 		});
