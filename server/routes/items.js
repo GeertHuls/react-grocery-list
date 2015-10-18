@@ -10,6 +10,8 @@ module.exports = function (app) {
 			})
 		})
 		.post(function (req, res) {
+
+			//The body object is created by the bodyParser library
 			var item = req.body;
 
 			var groceryItem = new GroceryItem(item);
