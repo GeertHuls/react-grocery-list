@@ -11,7 +11,7 @@ module.exports = React.createClass({
 	//the render method must always be implemented.
 	render: function () {
 		return (
-			//this is jsx - an bybrid of html and js:
+			//this is jsx - a hybrid of html and js:
 			<div>
 				<h1>Grocery listify</h1>
 				<div>
